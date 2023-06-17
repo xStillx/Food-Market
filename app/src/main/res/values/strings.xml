@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FoodDelivery</string>
+    <string name="menu">Меню</string>
+    <string name="profile">Профиль</string>
+    <string name="basket">Корзина</string>
+    <string name="Location">Местоположение</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="history">History</string>
+</resources>
