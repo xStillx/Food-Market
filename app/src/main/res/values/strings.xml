@@ -7,4 +7,6 @@
     <string name="name">Name</string>
     <string name="phone_number">Phone number</string>
     <string name="history">History</string>
+    <string name="error_message">Проверьте подключение к интернету</string>
+    <string name="add_to_basket">Предмет был добавлен в корзину</string>
 </resources>

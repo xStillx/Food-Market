@@ -19,6 +19,7 @@ import com.example.fooddelivery.features.menu.presentation.adapter.CategoriesAda
 import com.example.fooddelivery.features.menu.presentation.adapter.MenuAdapter
 import com.example.fooddelivery.utils.ViewState
 import com.google.android.gms.location.LocationServices
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -50,10 +51,16 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         viewModel.food.observe(viewLifecycleOwner){
             when(it){
                 is ViewState.Empty -> {}
-                is ViewState.Error -> {}
+                is ViewState.Error -> {
+                    val snackBar = Snackbar.make(viewBinding.rvFood, resources.getText(R.string.error_message), Snackbar.LENGTH_LONG)
+                    val snackBarView = snackBar.view
+                    snackBarView.setBackgroundColor(resources.getColor(R.color.red))
+                    snackBar.show()
+                }
                 is ViewState.Show -> {
                     viewBinding.rvFood.adapter = MenuAdapter(it.data){ food ->
                         viewModel.onAddFoodToBuyClick(food)
+                        Snackbar.make(viewBinding.rvFood, resources.getText(R.string.add_to_basket), Snackbar.LENGTH_SHORT).show()
                     }
                 }
             }
